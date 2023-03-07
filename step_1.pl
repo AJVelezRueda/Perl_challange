@@ -23,5 +23,7 @@ sub writeAcsvFile {
     close($FH);
 }
 
-my @randomList =  createRandomListOfNumbers(5);
-writeAcsvFile(@randomList);
+if (!caller) {
+    my @randomList =  createRandomListOfNumbers(5);
+    writeAcsvFile(@randomList);
+}
