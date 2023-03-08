@@ -2,8 +2,8 @@ use strict;
 use warnings;
 use v5.30;
 
-
-sub createRandomListOfNumbers {
+package randomCsvRow;
+sub createandomListOfNumbers {
     my $listSize = $_[0];
     my @listOfNumbers = (); 
 
@@ -12,17 +12,6 @@ sub createRandomListOfNumbers {
     }
 
     return @listOfNumbers;
-}
-
-
-sub writeAcsvFile {
-    my @listOfNumbers = @_;
-    my @slices = splice(@listOfNumbers, 0, -1);
-    
-    my $fileName = "output.txt";
-    open(my $FH, '>', $fileName) or die $!;
-    print $FH "@slices, $listOfNumbers[-1] \n";
-    close($FH);
 }
 
 sub createRandomSctrings {
@@ -37,8 +26,21 @@ sub createRandomSctrings {
     return $string;
 }
 
+sub writeAcsvFile {
+    my @listOfNumbers = @_;
+    my @slices = splice(@listOfNumbers, 0, -1);
+    
+    my $fileName = "output.txt";
+    open(my $FH, '>', $fileName) or die $!;
+    print $FH "@slices, $listOfNumbers[-1] \n";
+    close($FH);
+}
+1;
+
+=pod
 if (!caller) {
     my @randomList =  createRandomListOfNumbers(5);
     my $randomString =  createRandomSctrings(5);
     writeAcsvFile(@randomList, $randomString);
 }
+=cut
