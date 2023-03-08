@@ -8,7 +8,7 @@ sub createRandomListOfNumbers {
     my @listOfNumbers = (); 
 
     for (my $i = 0; $i <= $listSize; $i++) {
-        push(@listOfNumbers, int(rand(10000)));
+        push(@listOfNumbers, int(rand(10)));
     }
 
     return @listOfNumbers;
@@ -17,11 +17,11 @@ sub createRandomListOfNumbers {
 
 sub writeAcsvFile {
     my @listOfNumbers = @_;
-
+    my @slices = splice(@listOfNumbers, 0, -1);
     
     my $fileName = "output.txt";
     open(my $FH, '>', $fileName) or die $!;
-    print $FH pop(@listOfNumbers)." , $listOfNumbers[-1] \n";
+    print $FH "@slices, $listOfNumbers[-1] \n";
     close($FH);
 }
 
