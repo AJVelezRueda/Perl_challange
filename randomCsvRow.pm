@@ -36,11 +36,3 @@ sub writeAcsvFile {
     close($FH);
 }
 1;
-
-=pod
-if (!caller) {
-    my @randomList =  createRandomListOfNumbers(5);
-    my $randomString =  createRandomSctrings(5);
-    writeAcsvFile(@randomList, $randomString);
-}
-=cut
