@@ -14,7 +14,7 @@ sub createandomListOfNumbers {
     return @listOfNumbers;
 }
 
-sub createRandomSctrings {
+sub createRandomStrings {
     my @chars = ('A'..'Z');
     my $len = $_[0];
     my $string = "";
@@ -31,7 +31,7 @@ sub writeAcsvFile {
     my @slices = splice(@listOfNumbers, 0, -1);
     
     my $fileName = "output.txt";
-    open(my $FH, '>', $fileName) or die $!;
+    open(my $FH, '>>', $fileName) or die $!;
     print $FH "@slices, $listOfNumbers[-1] \n";
     close($FH);
 }

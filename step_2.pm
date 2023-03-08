@@ -11,5 +11,5 @@ if (not defined $number) {
 }
 
 my @randomList =  randomCsvRow::createandomListOfNumbers($number);
-my $randomString =  randomCsvRow::createRandomSctrin($number);
+my $randomString =  randomCsvRow::createRandomStrings($number);
 randomCsvRow::writeAcsvFile(@randomList, $randomString);
